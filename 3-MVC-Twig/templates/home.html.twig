@@ -1,0 +1,11 @@
+{% extends "layout.html.twig" %}
+
+{% block nav %}
+{% include "navBar.html.twig" %}
+{% endblock %}
+
+{% block content %}
+<h1>BIENVENID@ {% if logued == true %} USUARIO: {{username}}{% endif %}</h1>
+{% endblock %}
+
+
