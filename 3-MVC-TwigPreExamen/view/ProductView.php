@@ -13,6 +13,11 @@ class ProductView extends TwigView
 
       case 'formNewProduct':
         echo self::getTwig()->render('formNewProduct.twig.html', $array);
+        break;
+
+      case 'existsProduct':
+        echo self::getTwig()->render('existsProduct.twig.html', $array);
+        break;
     }
   }
 }

@@ -18,6 +18,7 @@ class ProductController
   public function productHome()
   {
     $array = Session::getInstance()->sessionData();
+    $array += ProductsRepository::getInstance()->getCategories();
     $array += ProductsRepository::getInstance()->listProducts();
     $view = new ProductView();
     $view->show('listProducts', $array);
@@ -41,20 +42,27 @@ class ProductController
       $categoria = trim($_POST['categoria']);
       $stockMin = trim($_POST['stockMin']);
 
-      $product = new Producto();
-      $product->setNombre($nombre);
-      $product->setPrecio($precio);
-      $product->setCategoria_id($categoria);
-      $product->setStock_min($stockMin);
 
-      ProductsRepository::getInstance()->newProduct($product);
-      header("Location: index.php");
+      if(!ProductsRepository::getInstance()->alreadyExistsProduct($nombre))
+      {
+        $product = new Producto();
+        $product->setNombre($nombre);
+        $product->setPrecio($precio);
+        $product->setCategoria_id($categoria);
+        $product->setStock_min($stockMin);
+
+        ProductsRepository::getInstance()->newProduct($product);
+        header("Location: index.php");
+      }else {
+        $this->existsProduct();
+      }
     }
   }
 
-
-
-
-
-
+  public function existsProduct()
+  {
+    $array = Session::getInstance()->sessionData();
+    $view = new ProductView();
+    $view->show('existsProduct', $array);
+  }
 }

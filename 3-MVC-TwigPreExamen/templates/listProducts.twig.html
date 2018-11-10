@@ -14,7 +14,11 @@
           <tr>
             <td>{{product.getNombre}}</td>
             <td>{{product.getPrecio}}</td>
-            <td>{{product.getCategoria_id}}</td>
+            {% for categ in categorias%}
+              {% if categ.getId == product.getCategoria_id %}
+              <td>{{categ.getNombre}}</td>
+              {% endif %}
+            {% endfor %}
             <td>{{product.getStock_min}}</td>
           </tr>
           {% endfor %}

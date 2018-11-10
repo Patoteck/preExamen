@@ -33,4 +33,17 @@ class ProductsRepository extends PDORepository
     return array('categorias' => $categoria);
   }
 
+  public function alreadyExistsProduct($nombre)
+  {
+    $stmt = $this->executeQuery("SELECT * FROM producto WHERE nombre=?",[$nombre]);
+    $product = $stmt->fetchAll(PDO::FETCH_CLASS, "Producto");
+    //print_r($product[0]);
+    if (!is_null($product)){
+      if (count($product) > 0){
+        return true;
+      }
+    }
+    return false;
+  }
+
 }
