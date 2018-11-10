@@ -1,0 +1,26 @@
+{% extends "layout.twig.html" %}
+
+{% block content %}
+<form action="index.php?controller=product&action=addProduct" method="post">
+  <h3>Agregar producto</h3><br>
+
+  <label>Nombre*</label><br>
+  <input type="text" name="nombre" placeholder="Nombre" required><br>
+
+  <label>Precio*</label><br>
+  <input type="text" name="precio" placeholder="Precio" required><br>
+
+  <label>Categoria*</label><br>
+  <select name="categoria" required><br>
+    {% for categoria in categorias %}
+    <option value="{{categoria.getId}}">{{categoria.getNombre}}</option>
+    {% endfor %}
+  </select><br>
+
+  <label>Stock minimo*</label><br>
+  <input type="text" name="stockMin" placeholder="Stock minimo" required><br>
+  <h5>*Campos obligatorios<h5>
+
+  <button type="submit">Guardar</button><br>
+</form>
+{% endblock %}

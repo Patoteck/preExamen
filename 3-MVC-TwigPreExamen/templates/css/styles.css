@@ -1,0 +1,26 @@
+nav{
+    background-color: grey;
+}
+
+nav ul{
+  list-style-type: none;
+  overflow: hidden;
+}
+
+nav ul li{
+  float: left;
+  padding: 10px;
+}
+
+table {
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+footer{
+  text-align: center;
+}

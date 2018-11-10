@@ -1,0 +1,19 @@
+{% extends "layout.twig.html" %}
+
+{% block content %}
+
+<h3>Login de usuario</h3>
+
+<form action="index.php?controller=login&action=validateLogin" method="post">
+
+  <label>Nombre de usuario</label>
+  <input type="text" name="username" placeholder="Nombre de usuario" required>
+
+  <label>Password</label>
+  <input type="password" name="password" placeholder="Password" required>
+
+  <button type="submit">Login</button>
+  <label>{{login}}</label>
+
+</form>
+{% endblock %}

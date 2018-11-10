@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./templates/css/styles.css">
+    <title>Distribuidora</title>
+  </head>
+  <body>
+    <nav>
+      {% block nav %}
+      {% include "navBar.twig.html" %}
+      {% endblock %}
+    </nav>
+    <section>
+      {% block content %}
+      {% endblock %}
+    </section>
+  </body>
+  <hr>
+  <footer><h4>Sistema distribuidora de productos - Proyecto de Software 2018<h4></footer>
+</html>
